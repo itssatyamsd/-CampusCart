@@ -1,0 +1,22 @@
+# Compiled files
+*.class
+*.war
+
+# IDE and build files
+.vscode/
+.idea/
+build/
+dist/
+target/
+
+# Secrets
+.env
+.env.*
+
+# Backup source file
+src/OrderServlet_backup.java
+
+# Logs and OS files
+*.log
+.DS_Store
+Thumbs.db

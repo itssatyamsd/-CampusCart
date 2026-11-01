@@ -1,0 +1,38 @@
+
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
+
+    <servlet>
+        <servlet-name>CampusCartServlet</servlet-name>
+        <servlet-class>CampusCartServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CampusCartServlet</servlet-name>
+        <url-pattern>/test</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>FoodServlet</servlet-name>
+        <servlet-class>FoodServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>FoodServlet</servlet-name>
+        <url-pattern>/foods</url-pattern>
+    </servlet-mapping>
+
+    <!-- Add this new section -->
+    <servlet>
+        <servlet-name>OrderServlet</servlet-name>
+        <servlet-class>OrderServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>OrderServlet</servlet-name>
+        <url-pattern>/place-order</url-pattern>
+    </servlet-mapping>
+
+</web-app>

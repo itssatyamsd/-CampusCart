@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusCart | Intelligent Food Delivery Agent</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <a href="#" class="logo">Campus<span>Cart.</span></a>
+        <nav>
+            <a href="#" class="active">Home</a>
+            <a href="#menu">Explore</a>
+            <a href="#delivery">AI Agent</a>
+            <a href="#about">About</a>
+        </nav>
+        <div class="nav-actions">
+            <a href="#cart" class="cart-link">
+    🛒 Cart
+    <span id="cart-count">0</span>
+</a>
+            <button class="login-btn" onclick="showLogin()">Login</button>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-tag">🤖 INTELLIGENT CAMPUS FOOD DELIVERY</span>
+            <h1>Delicious Food.<br>Delivered <span>To You.</span></h1>
+            <p>
+                Your favourite campus meals are just a few clicks away.
+                Smart route planning and intelligent delivery management
+                make campus food ordering easier.
+            </p>
+            <div class="hero-buttons">
+                <a href="#menu" class="primary-btn">Explore Food →</a>
+                <a href="#delivery" class="secondary-btn">Explore AI Agent</a>
+            </div>
+            <div class="hero-stats">
+                <div><h3>Fresh</h3><p>Every day</p></div>
+                <div><h3>Smart</h3><p>AI navigation</p></div>
+                <div><h3>Fast</h3><p>Route planning</p></div>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=900"
+                 alt="Fresh pizza">
+        </div>
+    </section>
+
+    <!-- SEARCH -->
+    <section class="search-section">
+        <div>
+            <h2>What are you craving today?</h2>
+            <p>Find your favourite food on campus.</p>
+        </div>
+        <div class="search-box">
+            <span>🔍</span>
+            <input type="text" id="food-search"
+                   placeholder="Search pizza, burger, sandwich...">
+            <button type="button" onclick="searchFood()">Search</button>
+        </div>
+    </section>
+
+    <!-- CATEGORIES -->
+    <section class="categories">
+        <div class="section-title">
+            <span>EXPLORE</span>
+            <h2>Browse Categories</h2>
+        </div>
+        <div class="category-list">
+            <div class="category-card">🍕<p>Pizza</p></div>
+            <div class="category-card">🍔<p>Burgers</p></div>
+            <div class="category-card">🥪<p>Sandwiches</p></div>
+            <div class="category-card">🍟<p>Snacks</p></div>
+            <div class="category-card">🥤<p>Drinks</p></div>
+        </div>
+    </section>
+
+    <!-- FOOD MENU -->
+    <section id="menu" class="menu">
+        <div class="section-title">
+            <span>OUR MENU</span>
+            <h2>Popular Food Items</h2>
+            <p>Fresh food, great taste and student-friendly prices.</p>
+        </div>
+        <div class="food-container"></div>
+    </section>
+
+    <!-- SHOPPING CART -->
+    <section id="cart" class="cart">
+        <div class="section-title">
+            <span>YOUR ORDER</span>
+            <h2>Your Shopping Cart 🛒</h2>
+        </div>
+        <div id="cart-items">Your cart is empty.</div>
+        <h3 id="cart-total">Total: ₹0</h3>
+        <button onclick="placeOrder()">Place Order →</button>
+    </section>
+
+    <!-- INTELLIGENT DELIVERY AGENT -->
+    <section id="delivery" class="menu">
+        <div class="section-title">
+            <span>ARTIFICIAL INTELLIGENCE</span>
+            <h2>Intelligent Delivery Agent 🤖</h2>
+            <p>AI-based campus navigation, route planning and delivery management.</p>
+        </div>
+
+        <div class="food-card" style="padding:25px; margin:20px auto; max-width:750px;">
+
+            <!-- ROUTE PLANNING -->
+            <h3>1. Campus Map & Route Planning</h3>
+            <p>Select a starting point and delivery destination.</p>
+
+            <label for="route-start">Starting Location</label>
+            <select id="route-start">
+                <option value="Cafe">Campus Cafe</option>
+                <option value="Corner">Food Corner</option>
+                <option value="Healthy">Healthy Bites</option>
+            </select>
+
+            <br><br>
+
+            <label for="route-end">Delivery Location</label>
+            <select id="route-end">
+                <option value="HostelA">Hostel A</option>
+                <option value="HostelB">Hostel B</option>
+                <option value="Library">Library</option>
+            </select>
+
+            <br><br>
+
+            <h4>Choose Route Algorithm</h4>
+            <button onclick="runAI('bfs')">BFS Route</button>
+            <button onclick="runAI('dfs')">DFS Route</button>
+            <button onclick="runAI('astar')">A* Shortest Route</button>
+
+            <p id="route-result">Select locations to calculate a route.</p>
+
+            <hr>
+
+            <!-- ORDER PRIORITY -->
+            <h3>2. Order Priority Classification</h3>
+            <p>Classify deliveries according to their priority.</p>
+            <button onclick="scheduleOrders()">Schedule Deliveries</button>
+            <p id="schedule-result">Waiting for scheduling...</p>
+
+            <hr>
+
+            <!-- ROBOT BATTERY AND CAPACITY -->
+            <h3>3. Battery & Carrying Capacity Monitoring</h3>
+
+            <p id="robot-result">Robot ready for monitoring.</p>
+
+            <button onclick="checkRobot()">Check Robot Status</button>
+            <button onclick="completeDelivery()">Complete Delivery</button>
+
+            <hr>
+
+            <!-- MULTIPLE ORDER SCHEDULING -->
+            <h3>4. Multiple Order Scheduling</h3>
+            <p>View the priority-based delivery sequence.</p>
+            <button onclick="scheduleOrders()">Generate Delivery Schedule</button>
+            <p id="multiple-schedule-result">No schedule generated yet.</p>
+
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="about">
+        <span>ABOUT CAMPUSCART</span>
+        <h2>Making Campus Food Ordering Smarter.</h2>
+        <p>
+            CampusCart is an Intelligent Food Delivery Agent designed
+            to manage customer orders, food databases, campus locations,
+            route planning and delivery scheduling using AI concepts.
+        </p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <h2>Campus<span>Cart.</span></h2>
+        <p>Good Food. Smart Delivery. Great Campus Life.</p>
+        <p>© 2026 CampusCart | Intelligent Food Delivery Agent</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
